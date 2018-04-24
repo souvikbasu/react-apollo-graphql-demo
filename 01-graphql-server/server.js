@@ -13,6 +13,10 @@ var root = {
 };
 
 var app = express();
+
+var cors=require('cors');
+app.use(cors({origin:true,credentials: true}));
+
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
