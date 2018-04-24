@@ -5,7 +5,15 @@ import Player from './Player'
 
 const GET_PLAYER = gql`
   query {
-    hello
+    firstName
+    lastName
+    profession
+    nationality
+    centuries {
+      runs
+      against
+      date
+    }
   }
 `
 
@@ -17,7 +25,11 @@ const App = () => {
         if (error) return <div>Error :(</div>;
 
         return (
-          <Player url={data.hello} />
+          <Player firstName={data.firstName} 
+                  lastName={data.lastName} 
+                  profession={data.profession} 
+                  nationality={data.nationality} 
+                  centuries={data.centuries} />
         )
       }}
     </Query>);
